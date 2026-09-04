@@ -1,5 +1,6 @@
 /* =========================================================
    JUNNU GIFT — LOCAL ASSETS VERSION
+   =========================================================
    No Supabase
    No Database
    No Admin
@@ -38,13 +39,36 @@ const backTopButton =
 
 /* =========================================================
    IMAGE PATH
+   =========================================================
+   IMPORTANT:
+   All images are directly inside the "assets" folder.
    ========================================================= */
 
-const IMAGE_PATH = "assets/images/";
+const IMAGE_PATH = "assets/";
+
+
+/* =========================================================
+   SAFE IMAGE PATH
+   =========================================================
+   Handles spaces and special characters in filenames.
+   Example:
+   her (1).jpg
+   becomes a browser-safe URL.
+   ========================================================= */
+
+function imagePath(filename) {
+  return IMAGE_PATH + encodeURIComponent(filename);
+}
 
 
 /* =========================================================
    HER PHOTOS
+   =========================================================
+   Available files from your GitHub assets folder:
+   her (1) - her (13)
+   her (15) - her (17)
+
+   her (14).jpg does NOT exist, so it is not included.
    ========================================================= */
 
 const HER_PHOTOS = [
@@ -61,17 +85,18 @@ const HER_PHOTOS = [
   "her (11).jpg",
   "her (12).jpg",
   "her (13).jpg",
-  "her (14).jpg",
   "her (15).jpg",
   "her (16).jpg",
   "her (17).jpg"
-].map(
-  file => IMAGE_PATH + file
-);
+].map(imagePath);
 
 
 /* =========================================================
    MY PHOTOS
+   =========================================================
+   Available files:
+   my (1) - my (15).jpg
+   my (16).png
    ========================================================= */
 
 const MY_PHOTOS = [
@@ -91,9 +116,7 @@ const MY_PHOTOS = [
   "my (14).jpg",
   "my (15).jpg",
   "my (16).png"
-].map(
-  file => IMAGE_PATH + file
-);
+].map(imagePath);
 
 
 /* =========================================================
@@ -101,7 +124,7 @@ const MY_PHOTOS = [
    ========================================================= */
 
 const COUPLE_PHOTOS = [
-  IMAGE_PATH + "couple (1).jpg"
+  imagePath("couple (1).jpg")
 ];
 
 
@@ -134,7 +157,6 @@ const LETTER_TYPING_TEXT =
 
 let giftOpened = false;
 
-
 if (goButton) {
 
   goButton.addEventListener(
@@ -146,35 +168,42 @@ if (goButton) {
       giftOpened = true;
 
 
+      /* Hide opening screen */
+
       if (openScreen) {
-
         openScreen.style.display = "none";
-
       }
 
+
+      /* Show experience */
 
       if (exp) {
-
         exp.classList.add("show");
-
       }
 
 
+      /* Start typing */
+
       startTyping();
+
+
+      /* Start background animation */
 
       createBackgroundEffects();
 
 
+      /* Show surprise button */
+
       setTimeout(() => {
 
         if (surprise) {
-
           surprise.classList.add("show");
-
         }
 
       }, 2200);
 
+
+      /* Scroll to first section */
 
       setTimeout(() => {
 
@@ -194,7 +223,7 @@ if (goButton) {
 
 
 /* =========================================================
-   TYPING
+   TYPING EFFECT
    ========================================================= */
 
 function startTyping() {
@@ -214,9 +243,7 @@ function startTyping() {
       index >=
       LETTER_TYPING_TEXT.length
     ) {
-
       return;
-
     }
 
 
@@ -245,7 +272,6 @@ function startTyping() {
 
 let envelopeOpened = false;
 
-
 if (envelope) {
 
   envelope.addEventListener(
@@ -256,8 +282,13 @@ if (envelope) {
 
       envelopeOpened = true;
 
+
+      /* Open envelope */
+
       envelope.classList.add("open");
 
+
+      /* Change hint */
 
       if (envelopeHint) {
 
@@ -267,9 +298,13 @@ if (envelope) {
       }
 
 
+      /* Show surprise */
+
       setTimeout(() => {
 
-        surprise?.classList.add("show");
+        if (surprise) {
+          surprise.classList.add("show");
+        }
 
       }, 1200);
 
@@ -285,7 +320,6 @@ if (envelope) {
 
 let surpriseOpened = false;
 
-
 if (surpriseButton) {
 
   surpriseButton.addEventListener(
@@ -296,15 +330,26 @@ if (surpriseButton) {
 
       surpriseOpened = true;
 
-      surpriseText?.classList.add("show");
 
+      /* Show surprise text */
+
+      if (surpriseText) {
+        surpriseText.classList.add("show");
+      }
+
+
+      /* Show special message */
 
       setTimeout(() => {
 
-        specialMessage?.classList.add("show");
+        if (specialMessage) {
+          specialMessage.classList.add("show");
+        }
 
       }, 700);
 
+
+      /* Heart animation */
 
       createHeartBurst(18);
 
@@ -339,10 +384,21 @@ captionCards.forEach(card => {
 
 
 /* =========================================================
-   BACKGROUND
+   BACKGROUND EFFECTS
    ========================================================= */
 
+let backgroundStarted = false;
+
 function createBackgroundEffects() {
+
+  /* Prevent duplicate intervals */
+
+  if (backgroundStarted) return;
+
+  backgroundStarted = true;
+
+
+  /* Initial sparks */
 
   for (
     let i = 0;
@@ -355,6 +411,8 @@ function createBackgroundEffects() {
   }
 
 
+  /* Floating particles */
+
   setInterval(() => {
 
     createParticle();
@@ -364,6 +422,10 @@ function createBackgroundEffects() {
 }
 
 
+/* =========================================================
+   CREATE SPARK
+   ========================================================= */
+
 function createSpark() {
 
   if (!background) return;
@@ -372,14 +434,18 @@ function createSpark() {
   const spark =
     document.createElement("div");
 
-  spark.className = "spark";
+
+  spark.className =
+    "spark";
 
 
   spark.style.left =
     Math.random() * 100 + "%";
 
+
   spark.style.top =
     Math.random() * 100 + "%";
+
 
   spark.style.animationDelay =
     Math.random() * 2 + "s";
@@ -392,6 +458,10 @@ function createSpark() {
 }
 
 
+/* =========================================================
+   CREATE FLOATING PARTICLE
+   ========================================================= */
+
 function createParticle() {
 
   if (!background) return;
@@ -399,6 +469,7 @@ function createParticle() {
 
   const particle =
     document.createElement("div");
+
 
   particle.className =
     "particle";
@@ -486,20 +557,26 @@ function createHeartBurst(
     heart.style.position =
       "fixed";
 
+
     heart.style.left =
       "50%";
+
 
     heart.style.top =
       "50%";
 
+
     heart.style.zIndex =
       "9999";
+
 
     heart.style.pointerEvents =
       "none";
 
+
     heart.style.color =
       "#ffabc9";
+
 
     heart.style.fontSize =
       (
@@ -598,6 +675,8 @@ function createSlideshow({
   }
 
 
+  /* No photos */
+
   if (
     !images ||
     images.length === 0
@@ -626,8 +705,12 @@ function createSlideshow({
   let current = 0;
 
 
+  /* Clear old dots */
+
   dotsElement.innerHTML = "";
 
+
+  /* Create dots */
 
   images.forEach(
     (_, index) => {
@@ -638,7 +721,8 @@ function createSlideshow({
         );
 
 
-      dot.className = "dot";
+      dot.className =
+        "dot";
 
 
       if (index === 0) {
@@ -676,6 +760,8 @@ function createSlideshow({
     );
 
 
+  /* Show current slide */
+
   function showSlide() {
 
     imageElement.classList.remove(
@@ -695,6 +781,8 @@ function createSlideshow({
     }, 80);
 
 
+    /* Update dots */
+
     dots.forEach(
       (dot, index) => {
 
@@ -707,6 +795,8 @@ function createSlideshow({
     );
 
 
+    /* Update counter */
+
     if (countElement) {
 
       countElement.textContent =
@@ -717,6 +807,8 @@ function createSlideshow({
   }
 
 
+  /* First image */
+
   imageElement.src =
     images[0];
 
@@ -726,6 +818,8 @@ function createSlideshow({
   );
 
 
+  /* First counter */
+
   if (countElement) {
 
     countElement.textContent =
@@ -733,6 +827,8 @@ function createSlideshow({
 
   }
 
+
+  /* Automatic slideshow */
 
   if (images.length > 1) {
 
@@ -743,6 +839,7 @@ function createSlideshow({
           current + 1
         ) %
         images.length;
+
 
       showSlide();
 
@@ -782,48 +879,69 @@ function loadCouplePhotos() {
   }
 
 
-  const card =
-    document.createElement(
-      "div"
-    );
+  COUPLE_PHOTOS.forEach(
+    (src, index) => {
+
+      const card =
+        document.createElement(
+          "div"
+        );
 
 
-  card.className =
-    "couple-card";
+      card.className =
+        "couple-card";
 
 
-  const image =
-    document.createElement(
-      "img"
-    );
+      const image =
+        document.createElement(
+          "img"
+        );
 
 
-  image.src =
-    COUPLE_PHOTOS[0];
+      image.src =
+        src;
 
 
-  image.alt =
-    "Our special memory";
+      image.alt =
+        `Our special memory ${index + 1}`;
 
 
-  image.loading =
-    "lazy";
+      image.loading =
+        "lazy";
 
 
-  card.appendChild(
-    image
-  );
+      /* Image error handling */
+
+      image.addEventListener(
+        "error",
+        () => {
+
+          console.error(
+            "Couple image failed to load:",
+            src
+          );
+
+        }
+      );
 
 
-  coupleGrid.appendChild(
-    card
+      card.appendChild(
+        image
+      );
+
+
+      coupleGrid.appendChild(
+        card
+      );
+
+    }
   );
 
 }
 
 
 /* =========================================================
-   INITIALIZE SLIDESHOWS
+   INITIALIZE HER SLIDESHOW
    ========================================================= */
 
 createSlideshow({
@@ -846,6 +964,10 @@ createSlideshow({
 });
 
 
+/* =========================================================
+   INITIALIZE MY SLIDESHOW
+   ========================================================= */
+
 createSlideshow({
 
   imageElement:
@@ -865,6 +987,10 @@ createSlideshow({
 
 });
 
+
+/* =========================================================
+   LOAD COUPLE PHOTO
+   ========================================================= */
 
 loadCouplePhotos();
 
@@ -888,3 +1014,68 @@ if (backTopButton) {
   );
 
 }
+
+
+/* =========================================================
+   IMAGE PRELOADING
+   =========================================================
+   Loads images in advance so slideshow transitions
+   feel smoother.
+   ========================================================= */
+
+function preloadImages(images) {
+
+  if (!images) return;
+
+
+  images.forEach(src => {
+
+    const image =
+      new Image();
+
+
+    image.src =
+      src;
+
+  });
+
+}
+
+
+preloadImages(HER_PHOTOS);
+preloadImages(MY_PHOTOS);
+preloadImages(COUPLE_PHOTOS);
+
+
+/* =========================================================
+   GLOBAL IMAGE ERROR HANDLING
+   ========================================================= */
+
+document.addEventListener(
+  "error",
+  event => {
+
+    const element =
+      event.target;
+
+
+    if (
+      element &&
+      element.tagName === "IMG"
+    ) {
+
+      console.error(
+        "Image failed to load:",
+        element.src
+      );
+
+    }
+
+  },
+  true
+);
+
+
+/* =========================================================
+   DONE ❤️
+   ========================================================= */
