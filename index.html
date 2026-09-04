@@ -1,56 +1,520 @@
 <!doctype html>
 <html lang="bn">
+
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#08030c">
-<title>Junnu ❤️ — Under Work</title>
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Pacifico&display=swap");
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
-body{display:flex;justify-content:center;align-items:center;text-align:center;color:#fff;font-family:"Baloo Da 2",sans-serif;background:radial-gradient(circle at 50% 22%,#ff318c2b,transparent 30%),radial-gradient(circle at 10% 85%,#6748ff20,transparent 30%),linear-gradient(145deg,#190517,#08030c 55%,#020106)}
-body:before{content:"";position:fixed;inset:-30%;background:conic-gradient(transparent,#ff3d9418,transparent 25%,#784bff12,transparent 55%);filter:blur(45px);animation:spin 18s linear infinite}
-.wrap{width:min(560px,92vw);position:relative;z-index:2;padding:18px 0}
-.warning{font-size:52px;color:#ff82c2;text-shadow:0 0 15px #ff3b99,0 0 35px #ff197d66;animation:pulse 1.8s infinite}
-.top,.under{font-family:Georgia,serif;letter-spacing:4px;text-transform:uppercase}.top{font-size:12px}.under{font-size:14px;color:#ff75b7}
-.junnu{font-family:Pacifico,cursive;font-size:clamp(75px,22vw,132px);line-height:1;margin:8px 0 20px;color:#ff75b7;text-shadow:0 0 5px #fff,0 0 18px #ff4da4,0 0 42px #ff197d88;animation:glow 2.7s infinite;position:relative}
-.crown{position:absolute;font-family:Arial;font-size:34px;right:3%;top:0}
-.panel{position:relative;border:1px solid #ff5eae88;border-radius:25px;padding:28px 18px 24px;background:#ffffff09;box-shadow:0 0 35px #ff258226,inset 0 0 30px #ff4c9d0c;backdrop-filter:blur(12px);animation:in .8s both}
-.gear{position:absolute;top:-23px;left:50%;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#150817;border:1px solid #ff63ae;color:#ff78ba;font-size:27px;box-shadow:0 0 24px #ff2d8b66;animation:gear 5s linear infinite}
-.main{font-size:clamp(25px,7vw,38px);font-weight:700;line-height:1.15}.sub{font-size:clamp(19px,5vw,27px);color:#ff8fc4;line-height:1.3}
-.divider{height:1px;margin:18px 5%;background:linear-gradient(90deg,transparent,#ff5eae,transparent)}
-.week{font-size:20px;font-weight:700;color:#ff8fc5}.calendar{display:inline-grid;place-items:center;width:43px;height:43px;margin-right:10px;border-radius:10px;background:#fff;color:#ff3e8f;box-shadow:0 0 18px #ff4da655}.reason{font-size:18px;color:#eee0ea}
-.loader{margin:28px auto 4px;height:70px;position:relative;width:90%;display:grid;place-items:center;overflow:visible}.heart{font-size:66px;color:#ff67b0;background:transparent;padding:0 12px;z-index:2;filter:drop-shadow(0 0 7px #ffb4dc) drop-shadow(0 0 18px #ff2d8b) drop-shadow(0 0 35px #ff2d8b77);animation:beat 1.15s infinite}
-svg{position:absolute;width:100%;height:48px;z-index:1}path{fill:none;stroke:#ff54a4;stroke-width:2;stroke-dasharray:650;stroke-dashoffset:650;filter:drop-shadow(0 0 5px #ff2d8b);animation:ecg 2.2s linear infinite}
-.loading{font-family:Georgia,serif;letter-spacing:4px;color:#ff92c6;font-size:14px}.dots i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ff3d92;margin:8px 3px;animation:dot 1.2s infinite}.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}.dots i:nth-child(4){animation-delay:.45s}.dots i:nth-child(5){animation-delay:.6s}
-.thanks{font-family:Pacifico,cursive;color:#ff78b9;font-size:23px;margin-top:18px}.coming{font-family:Georgia,serif;letter-spacing:3px;color:#efb9d5;font-size:12px;margin-top:8px;text-transform:uppercase}.stay{display:inline-block;margin-top:18px;padding:10px 20px;border:1px solid #ff56a8;border-radius:999px;color:#fff;box-shadow:0 0 20px #ff258222}
-.p{position:fixed;width:3px;height:3px;border-radius:50%;background:#ff83c2;box-shadow:0 0 10px #ff4ca6;animation:float var(--d) linear infinite;animation-delay:var(--delay)}
-@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{50%{transform:scale(1.08)}}@keyframes glow{50%{text-shadow:0 0 8px #fff,0 0 25px #ff4da4,0 0 55px #ff197daa}}@keyframes gear{to{transform:translateX(-50%) rotate(360deg)}}@keyframes in{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}@keyframes beat{14%{transform:scale(1.12)}28%{transform:scale(1)}50%{transform:scale(1)}}@keyframes ecg{to{stroke-dashoffset:0}}@keyframes dot{35%{transform:scale(1.3);opacity:1}70%,100%{transform:scale(.6);opacity:.4}}@keyframes float{0%{transform:translateY(105vh);opacity:0}12%{opacity:.8}100%{transform:translateY(-10vh) translateX(70px);opacity:0}}
-@media(max-height:700px){.wrap{padding:5px}.warning{font-size:40px}.junnu{font-size:78px;margin-bottom:12px}.panel{padding:22px 14px}.loader{margin-top:18px}.thanks{margin-top:10px}}
-</style>
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,viewport-fit=cover"
+>
+
+<meta
+  name="theme-color"
+  content="#08040b"
+>
+
+<title>শুধু তোমার জন্য ❤️</title>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-<div id="particles"></div>
-<main class="wrap">
-<div class="warning">⚠</div>
-<div class="top">SORRY, THIS PAGE IS</div><div class="under">UNDER WORK</div>
-<div class="junnu">Junnu <span class="crown">♕</span></div>
-<section class="panel">
-<div class="gear">⚙</div>
-<div class="main">বর্তমানে ওয়েবসাইটে কাজ চলছে</div>
-<div class="sub">দয়া করে কিছুদিন পরে চেষ্টা করো ❤️</div>
-<div class="divider"></div>
-<div class="week"><span class="calendar">♥</span>সপ্তাহে একবার হলেও চেক করো</div>
-<div class="reason">কারণ প্রতি সপ্তাহে নতুন কিছু আসবে ✨</div>
+
+<div id="bg"></div>
+
+
+<!-- =========================
+     OPEN SCREEN
+     ========================= -->
+
+<section id="open">
+
+  <div class="inner">
+
+    <div class="eyebrow">
+      A tiny surprise, made with love
+    </div>
+
+    <h1>
+      Junnu ❤️
+    </h1>
+
+    <p class="sub">
+      একটা ছোট্ট উপহার... শুধু তোমার জন্য।
+    </p>
+
+    <button class="btn" id="go">
+      💗 Open Your Gift
+    </button>
+
+    <div class="hint">
+      একবার চাপ দাও...
+    </div>
+
+  </div>
+
 </section>
-<div class="loader"><svg viewBox="0 0 600 60" preserveAspectRatio="none"><path d="M0 30H145L170 30 185 30 200 8 220 52 238 30H285L310 30 325 30 340 12 360 50 378 30H600"/></svg><div class="heart">♡</div></div>
-<div class="loading">LOADING...</div><div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="thanks">♥ Thanks For Your Patience ♥</div>
-<div class="coming">Something Beautiful Is Coming Soon...</div>
-<div class="stay">♥ Stay Tuned With Love ♥</div>
+
+
+
+<!-- =========================
+     EXPERIENCE
+     ========================= -->
+
+<main id="exp">
+
+<section>
+
+  <div class="inner">
+
+
+    <!-- =====================
+         LETTER
+         ===================== -->
+
+    <div class="box">
+
+      <div class="eyebrow">
+        A little letter
+      </div>
+
+      <div class="title">
+        একটা কথা ছিল...
+      </div>
+
+      <div class="typing" id="typing"></div>
+
+      <div class="mini">
+
+        <span>love</span>
+        <span>dear</span>
+        <span>smile</span>
+        <span>you</span>
+        <span>♡</span>
+
+      </div>
+
+
+      <div class="envwrap">
+
+        <div class="env" id="env">
+
+          <div class="back"></div>
+          <div class="flap"></div>
+          <div class="left"></div>
+          <div class="right"></div>
+
+          <div class="seal">
+            ♥
+          </div>
+
+        </div>
+
+
+        <div class="letter">
+
+          <h2>
+            শুধু তোমার জন্য
+          </h2>
+
+          <p>
+            তুমি আমার জীবনের এমন এক অধ্যায়, যেটা শেষ হয়ে গেলেও কোনোদিন মুছে যাবে না। তোমার সঙ্গে কাটানো প্রতিটা মুহূর্ত আমার কাছে ভীষণ মূল্যবান। জীবনে অনেক মানুষ আসবে, অনেকেই হয়তো থেকে যাবে, কিন্তু তোমার জায়গাটা সবসময়ই আলাদা থাকবে। তোমাকে আমার জীবনে পাওয়াটা সত্যিই আমার সবচেয়ে সুন্দর প্রাপ্তিগুলোর একটি। ❤️
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="hint" id="eh">
+        💌 খামটাতে একটু চাপ দাও
+      </div>
+
+    </div>
+
+
+
+    <!-- =====================
+         SURPRISE
+         ===================== -->
+
+    <div id="surprise">
+
+      <div class="hint">
+        এবার নিচেরটাতে একটু চাপ দাও... 👀
+      </div>
+
+      <button class="btn" id="rb">
+        ✨ একটা ছোট্ট surprise
+      </button>
+
+      <div id="u">
+
+        U lala<br>
+
+        <span style="font-family:serif;font-size:.55em">
+          🙂👉🏻👈🏻
+        </span>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =====================
+         SPECIAL MESSAGE
+         ===================== -->
+
+    <div
+      class="message-reveal"
+      id="specialMessage"
+    >
+
+      <h2>
+        For You 💗
+      </h2>
+
+      <p>
+        কখনো কখনো তোমাকে খুব বেশি মনে পড়ে, অথচ সেই অনুভূতিটা ঠিক করে ভাষায় প্রকাশ করা যায় না। দূরে থেকেও তুমি আমার মনের এতটা কাছে যে, তোমাকে ছাড়া কিছু মুহূর্ত অসম্পূর্ণ লাগে। জানি না তুমি কতটা বুঝতে পারো, কিন্তু সত্যি বলতে—তোমাকে আমি প্রতিদিন একটু একটু করে মিস করি। তুমি আমার সেই মানুষ, যাকে কাছে পাওয়ার ইচ্ছে কখনো কমে না। 🌸❤️
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     LITTLE THINGS
+     ========================= -->
+
+<section class="caption-section">
+
+  <div class="inner">
+
+    <div class="eyebrow">
+      Little things that matter
+    </div>
+
+    <h2 class="section-script-title">
+      কিছু ছোট্ট কথা ❤️
+    </h2>
+
+
+    <div class="caption-grid">
+
+
+      <div class="caption-card">
+
+        <div class="icon">
+          ♡
+        </div>
+
+        <h3>
+          My Heartbeat
+        </h3>
+
+        <small>
+          Tap to open
+        </small>
+
+        <div class="caption-text">
+          তোমার কথা মনে পড়লেই অজান্তেই হাসি আসে, আর তোমাকে কাছে পাওয়ার ইচ্ছে আরও বেড়ে যায়। তোমাকে মিস করাটাও যেন এক সুন্দর অনুভূতি। 💗
+        </div>
+
+      </div>
+
+
+
+      <div class="caption-card">
+
+        <div class="icon">
+          ★
+        </div>
+
+        <h3>
+          My Safe Place
+        </h3>
+
+        <small>
+          Tap to open
+        </small>
+
+        <div class="caption-text">
+          সবকিছু এলোমেলো হলেও, তোমার কথা মনে পড়লেই মনটা কেমন যেন শান্ত হয়ে যায়। তুমি আমার সেই ছোট্ট শান্তি, যাকে দূরে থেকেও ভীষণ আপন মনে হয়। 🌙❤️
+        </div>
+
+      </div>
+
+
+
+      <div class="caption-card">
+
+        <div class="icon">
+          ∞
+        </div>
+
+        <h3>
+          My Forever Person
+        </h3>
+
+        <small>
+          Tap to open
+        </small>
+
+        <div class="caption-text">
+          সময় বদলাবে, দিন বদলাবে, হয়তো আমাদের চারপাশের অনেক কিছুই বদলে যাবে—তবুও আমার হৃদয়ে তোমার জন্য যে জায়গাটা, সেটা কোনোদিন বদলাবে না। তুমি ছিলে, আছো, আর আমার মনের খুব আপন একটা অংশ হয়েই থেকে যাবে। ❤️🌸
+        </div>
+
+      </div>
+
+
+
+      <div class="caption-card">
+
+        <div class="icon">
+          ♧
+        </div>
+
+        <h3>
+          My Secret Keeper
+        </h3>
+
+        <small>
+          Tap to open
+        </small>
+
+        <div class="caption-text">
+          কিছু কথা সবাইকে বলা যায় না। কিছু অনুভূতি শুধু তোমার কাছেই safe। 🫶
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     HER PHOTOS
+     ========================= -->
+
+<section
+  class="memory-section"
+  id="herPhotos"
+>
+
+  <div class="inner">
+
+    <div class="memory-shell">
+
+      <div class="memory-head">
+
+        <div class="eyebrow">
+          Moment 01 • Her Memories
+        </div>
+
+        <h2>
+          তোমার ছবিগুলো 🌸
+        </h2>
+
+        <p>
+         তোমাকে মোনে পড়লে আমি তোমার ছবি গুলো দেখি। সেই জন্য তোমাকে ভুলতে পারি না।
+        </p>
+
+      </div>
+
+
+      <div
+        class="slideshow"
+        id="herSlide"
+      >
+
+        <img
+          class="slide-img active"
+          id="herImg"
+          alt="Her memory"
+        >
+
+        <div class="slide-shade"></div>
+
+        <div
+          class="slide-count"
+          id="herCount"
+        ></div>
+
+      </div>
+
+
+      <div
+        class="dots"
+        id="herDots"
+      ></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     MY PHOTOS
+     ========================= -->
+
+<section
+  class="memory-section"
+  id="myPhotos"
+>
+
+  <div class="inner">
+
+    <div class="memory-shell">
+
+      <div class="memory-head">
+
+        <div class="eyebrow">
+          Moment 02 • My Memories
+        </div>
+
+        <h2>
+          আমার ছবিগুলো 👦
+        </h2>
+
+        <p>
+          হয়তো আমাদের দেখা হবে না।কিন্তু আমাকে মনে পড়লে আমার ছবি গুলো দেখো।আমার ছবি গুলো দিয়ে গেলাম।
+        </p>
+
+      </div>
+
+
+      <div
+        class="slideshow"
+        id="mySlide"
+      >
+
+        <img
+          class="slide-img active"
+          id="myImg"
+          alt="My memory"
+        >
+
+        <div class="slide-shade"></div>
+
+        <div
+          class="slide-count"
+          id="myCount"
+        ></div>
+
+      </div>
+
+
+      <div
+        class="dots"
+        id="myDots"
+      ></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     COUPLE PHOTO
+     ========================= -->
+
+<section
+  class="couple-section"
+  id="couple"
+>
+
+  <div class="inner">
+
+    <div class="eyebrow">
+      Moment 03 • Us
+    </div>
+
+    <h2 class="couple-title">
+      আমাদের ছবি 👫
+    </h2>
+
+    <p class="couple-sub">
+      হয়তো বাস্তব না কিন্তু এই ছবিটা বাস্তব করা আমার সবচেয়ে বড় ইচ্ছা।
+    </p>
+
+
+    <div
+      class="couple-grid"
+      id="coupleGrid"
+    ></div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     ENDING
+     ========================= -->
+
+<section class="ending">
+
+  <div class="inner">
+
+    <div class="eyebrow">
+      The End • But Not Really
+    </div>
+
+    <h2>
+      শেষে শুধু এটুকুই... ❤️
+    </h2>
+
+    <p>
+      অনেক কথা, অনেক ছবি, অনেক স্মৃতি—সবকিছুর শেষে একটা কথাই থেকে যায়। তুমি আমার কাছে সত্যিই অনেক special। যত দূরেই থাকো, আমার মনের এই ছোট্ট জায়গাটা তোমারই থাকবে। আর একটা কথা,প্রতি সপ্তাহে অন্তত একবার করে দেখো কারণ আমি সব সময় আপডেট করব।👍🏻
+    </p>
+
+
+    <div id="backTop">
+
+      <button
+        class="btn"
+        id="backTopBtn"
+      >
+      💗 আবার শুরু থেকে দেখো
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 </main>
-<script>
-const box=document.getElementById("particles");
-for(let i=0;i<35;i++){let p=document.createElement("span");p.className="p";p.style.left=Math.random()*100+"%";p.style.setProperty("--d",7+Math.random()*12+"s");p.style.setProperty("--delay",-Math.random()*14+"s");box.appendChild(p)}
-</script>
-</body></html>
+
+
+<script src="script.js"></script>
+
+</body>
+
+          </html>
